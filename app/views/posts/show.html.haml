@@ -1,0 +1,18 @@
+.container
+  .row
+    .col-sm-6.well 
+      = render @post.categories
+      = render 'shared/content_title', title: link_to(@post.title, fix_url(@post.url))
+      %p
+        = @post.description
+  %hr/
+  .row
+    .col-sm-4.well
+      - if user_signed_in?
+        = simple_form_for [@post, @comment] do |f|    
+          = f.input :body
+          = f.submit "Create comment", class: "btn btn-primary"
+  %h5 Comments:
+.container
+  - @post.comments.reload.each do |comment|
+    = render 'comments/comment', comment: comment

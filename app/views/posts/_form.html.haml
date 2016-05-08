@@ -1,0 +1,9 @@
+.container
+  .row
+    .col-sm-6.well
+      = simple_form_for @post do |f|
+        = f.input :title
+        = f.input :url
+        = f.input :description
+        = f.association :categories, as: :check_boxes
+        = f.button :submit

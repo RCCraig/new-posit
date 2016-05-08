@@ -1,0 +1,7 @@
+.col-sm-4.well
+	= render post.categories
+	%h4= link_to post.title, fix_url(post.url)
+	%p= post.description	
+	%h6= post.creator.email
+	%p
+		= link_to("#{post.comments.size} comments", post_path(post))

@@ -1,0 +1,7 @@
+= render 'shared/content_title', title: "All Posts"
+
+.container
+  - @posts.each do |post|
+    .row
+      = render 'post', post: post  
+      
